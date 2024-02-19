@@ -1,0 +1,13 @@
+.main_container {
+	display: flex;
+}
+
+.title {
+	font-size: 28px;
+	font-weight: 400;
+	margin-bottom: 40px;
+}
+
+.title_bold {
+	font-weight: 600;
+}

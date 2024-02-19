@@ -1,0 +1,13 @@
+.search_input {
+  width: 200px;
+  height: 34px;
+  border: none;
+  outline: none;
+}
+
+.search_button {
+  height: 36px;
+  width: 40px;
+  border: none;
+  background-color: #ffffff;
+}

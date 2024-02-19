@@ -1,0 +1,26 @@
+.trip_item {
+  transition: var(--animation);
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.description {
+  padding: 10px;
+  margin-top: -7px;
+  border-left: 1px solid var(--secondary-txt-cl);
+  border-right: 1px solid var(--secondary-txt-cl);
+  border-bottom: 1px solid var(--secondary-txt-cl);
+}
+
+.description_selected {
+  padding: 10px;
+  margin-top: -7px;
+  border-left: 2px solid var(--accent-cl);
+  border-right: 2px solid var(--accent-cl);
+  border-bottom: 2px solid var(--accent-cl);
+}
+
+.dates {
+  color: gray;
+}
