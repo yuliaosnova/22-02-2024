@@ -6,25 +6,32 @@ import TripItem from "../TripItem/TripItem";
 import { useSelector } from "react-redux";
 import SearchBar from "../SearchBar/SearchBar";
 import { useSearchParams } from "react-router-dom";
+import Sort from "../Sort/Sort";
+import { sortByDate } from "../../utils/sortByDate";
 
 const TripsList = ({ toggleModal }) => {
-  const trips = useSelector(getTrips);
+  let trips = useSelector(getTrips);
   const [index, setIndex] = useState(0);
   const [touchStart, setTouchStart] = useState(0);
   const [touchEnd, setTouchEnd] = useState(0);
   const [filteredTrips, setFilteredTrips] = useState(null);
+  const [isSorted, setIsSorted] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams({
     filter: "",
   });
   const filter = searchParams.get("filter") ?? "";
 
   useEffect(() => {
-    if (filter === "") setFilteredTrips(null);
-    const filtered = trips.filter((trip) =>
+    let filtered = trips.filter((trip) =>
       trip.city.toLowerCase().includes(filter)
     );
-    setFilteredTrips(filtered);
-  }, [filter, trips]);
+    if (!isSorted) {
+      setFilteredTrips(filtered);
+    } else {
+      const sortedTrips = sortByDate(filtered);
+      setFilteredTrips(sortedTrips);
+    }
+  }, [filter, trips, isSorted]);
 
   function onTouchStart(e) {
     setTouchStart(e.targetTouches[0].clientX);
@@ -58,19 +65,14 @@ const TripsList = ({ toggleModal }) => {
     }
   }
 
-  //   function getSortedDate(d){
-  // 	return new Date(d.replace(/(\d+).(\d+).(\d+)/, '$3/$2/$1')).getTime();
-  //   }
-
-  //   function sort () {
-  // 	const sorted = trips.sort((a, b) => getSortedDate(a.startDate) > getSortedDate(b.startDate) ? 1 : -1);
-  // 	console.log('date', sorted)
-  //   }
+  function toggleIsSorted() {
+    setIsSorted(!isSorted);
+  }
 
   return (
     <section className={css.trips_container}>
       <SearchBar setFilter={setSearchParams} />
-
+      <Sort toggleIsSorted={toggleIsSorted} />
       <div className={css.slide_buttons}>
         <button className={css.slide_btn} onClick={clickLeft}>
           <svg className={css.icon}>
@@ -84,33 +86,18 @@ const TripsList = ({ toggleModal }) => {
         </button>
       </div>
       <ul className={css.slider}>
-        {!filteredTrips &&
-          trips
-            .slice(index, index + 3)
-            .map((trip, i) => (
-              <TripItem
-                onTouchStart={onTouchStart}
-                onTouchMove={onTouchMove}
-                onTouchEnd={onTouchEnd}
-                trip={trip}
-                index={index}
-                key={i}
-              />
-            ))}
-
-        {filteredTrips &&
-          filteredTrips
-            .slice(index, index + 3)
-            .map((trip, i) => (
-              <TripItem
-                onTouchStart={onTouchStart}
-                onTouchMove={onTouchMove}
-                onTouchEnd={onTouchEnd}
-                trip={trip}
-                index={index}
-                key={i}
-              />
-            ))}
+        {(filteredTrips || isSorted ? filteredTrips : trips)
+          .slice(index, index + 3)
+          .map((trip, i) => (
+            <TripItem
+              onTouchStart={onTouchStart}
+              onTouchMove={onTouchMove}
+              onTouchEnd={onTouchEnd}
+              trip={trip}
+              index={index}
+              key={i}
+            />
+          ))}
 
         <button className={css.add_btn} onClick={toggleModal}>
           <span>+</span>

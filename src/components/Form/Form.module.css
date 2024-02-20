@@ -99,7 +99,7 @@
   border: 1px solid var(--secondary-txt-cl);
 
   &:hover {
-    background-color: blue;
+    background-color: var(--accent-cl);
     color: white;
     border: transparent;
   }

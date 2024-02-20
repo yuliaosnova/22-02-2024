@@ -3,6 +3,7 @@ import css from "./TripItem.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { idChange } from "../../redux/selectedTripSlice";
 import { getSelectedTripId } from "../../redux/selectors";
+import { formatDate } from "../../utils/formatDate";
 
 const TripItem = ({ onTouchStart, onTouchMove, onTouchEnd, trip }) => {
   const selectedTrip = useSelector(getSelectedTripId);
@@ -10,7 +11,6 @@ const TripItem = ({ onTouchStart, onTouchMove, onTouchEnd, trip }) => {
   function chooseTrip(selectedId) {
     dispatch(idChange(selectedId));
   }
-
 //   console.log("selectedTrip", selectedTrip);
 
   return (
@@ -31,7 +31,7 @@ const TripItem = ({ onTouchStart, onTouchMove, onTouchEnd, trip }) => {
       <div className={trip.id === selectedTrip ? `${css.description_selected}` : `${css.description}`}>
         <p className={css.city}>{trip.city}</p>
         <p className={css.dates}>
-          {trip.startDate} - {trip.endDate}
+          {formatDate(trip.startDate) } - {formatDate(trip.endDate)}
         </p>
       </div>
     </li>

@@ -1,0 +1,19 @@
+.sort_container {
+  margin-top: 10px;
+}
+
+.sort_btn {
+  background-color: transparent;
+  border: 1px solid var(--accent-cl);
+  display: flex;
+  gap: 5px;
+  color: var(--accent-cl);
+
+  &:hover {
+    background-color: white;
+  }
+}
+
+.icon {
+  fill: var(--accent-cl);
+}
