@@ -22,8 +22,8 @@ const TripItem = ({ onTouchStart, onTouchMove, onTouchEnd, trip }) => {
       onClick={() => chooseTrip(trip.id)}
     >
       <img
-        width={200}
-        height={200}
+        width={120}
+        height={120}
         className={css.city_img}
         src={trip.image}
         alt={trip.city}

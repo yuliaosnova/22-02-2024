@@ -1,13 +1,19 @@
 .main_container {
 	display: flex;
+	gap: 30px;
 }
 
 .title {
-	font-size: 28px;
+	font-size: 18px;
 	font-weight: 400;
-	margin-bottom: 40px;
 }
 
 .title_bold {
 	font-weight: 600;
+}
+
+.left_block{
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
 }

@@ -1,0 +1,19 @@
+.title {
+	font-size: 14px;
+}
+
+.weather_list {
+	display: flex;
+	gap: 20px;
+}
+
+.day_of_week {
+	font-size: 12px;
+	color: gray;
+	margin-bottom: 10px;
+}
+
+.temp_block {
+	display: flex;
+	font-size: 12px;
+}

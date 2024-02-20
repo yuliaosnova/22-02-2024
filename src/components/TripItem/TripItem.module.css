@@ -6,16 +6,18 @@
 }
 
 .description {
-  padding: 10px;
-  margin-top: -7px;
+  font-size: 10px;
+  padding: 5px;
+  margin-top: -10px;
   border-left: 1px solid var(--secondary-txt-cl);
   border-right: 1px solid var(--secondary-txt-cl);
   border-bottom: 1px solid var(--secondary-txt-cl);
 }
 
 .description_selected {
-  padding: 10px;
-  margin-top: -7px;
+  font-size: 10px;
+  padding: 5px;
+  margin-top: -10px;
   border-left: 1px solid var(--accent-cl);
   border-right: 1px solid var(--accent-cl);
   border-bottom: 1px solid var(--accent-cl);
