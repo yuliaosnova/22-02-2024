@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 import SearchBar from "../SearchBar/SearchBar";
 import { useSearchParams } from "react-router-dom";
 
-const TripsList = () => {
+const TripsList = ({ toggleModal }) => {
   const trips = useSelector(getTrips);
   const [index, setIndex] = useState(0);
   const [touchStart, setTouchStart] = useState(0);
@@ -58,9 +58,19 @@ const TripsList = () => {
     }
   }
 
+  //   function getSortedDate(d){
+  // 	return new Date(d.replace(/(\d+).(\d+).(\d+)/, '$3/$2/$1')).getTime();
+  //   }
+
+  //   function sort () {
+  // 	const sorted = trips.sort((a, b) => getSortedDate(a.startDate) > getSortedDate(b.startDate) ? 1 : -1);
+  // 	console.log('date', sorted)
+  //   }
+
   return (
     <section className={css.trips_container}>
       <SearchBar setFilter={setSearchParams} />
+
       <div className={css.slide_buttons}>
         <button className={css.slide_btn} onClick={clickLeft}>
           <svg className={css.icon}>
@@ -102,7 +112,7 @@ const TripsList = () => {
               />
             ))}
 
-        <button className={css.add_btn}>
+        <button className={css.add_btn} onClick={toggleModal}>
           <span>+</span>
           <p>Add trip</p>
         </button>

@@ -4,7 +4,6 @@ import { FaSearch } from "react-icons/fa";
 
 const SearchBar = ({ setFilter }) => {
   const [searchQuery, setSearchQuery] = useState("");
-  console.log("searchQuery", searchQuery);
 
   const handleChange = (e) => {
     setSearchQuery(e.target.value.trim().toLowerCase());

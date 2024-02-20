@@ -3,42 +3,28 @@
     "id": 1,
     "city": "Berlin",
     "image": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Berlin_Skyline_Architecture_City_Germany_Lights.jpg",
-    "startDate": "17.07.2023",
-    "endDate": "21.07.2023"
+    "startDate": "2023-07-15",
+    "endDate": "2023-07-21"
   },
   {
     "id": 2,
     "city": "Tokyo",
     "image": "https://upload.wikimedia.org/wikipedia/commons/c/ca/Tokyo_Station_Marunouchi_Building_P5228787.jpg",
-    "startDate": "12.07.2023",
-    "endDate": "23.07.2023"
+    "startDate": "2023-06-10",
+    "endDate": "2023-06-15"
   },
   {
     "id": 3,
     "city": "Barcelona",
     "image": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Barcelona_38_2013.jpg",
-    "startDate": "12.07.2023",
-    "endDate": "23.07.2023"
+    "startDate": "2023-07-20",
+    "endDate": "2023-07-23"
   },
   {
     "id": 4,
     "city": "Paris",
     "image": "https://upload.wikimedia.org/wikipedia/commons/d/de/Eiffel_Tower_and_Pont_Alexandre_III_at_night.jpg",
-    "startDate": "12.07.2024",
-    "endDate": "23.07.2024"
-  },
-  {
-    "id": 5,
-    "city": "Paris2",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/d/de/Eiffel_Tower_and_Pont_Alexandre_III_at_night.jpg",
-    "startDate": "12.07.2024",
-    "endDate": "23.07.2024"
-  },
-  {
-    "id": 6,
-    "city": "Paris3",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/d/de/Eiffel_Tower_and_Pont_Alexandre_III_at_night.jpg",
-    "startDate": "12.07.2024",
-    "endDate": "23.07.2024"
+    "startDate": "2024-03-01",
+    "endDate": "2024-03-05"
   }
 ]

@@ -1,38 +1,37 @@
 [
-	{
-	  "id": 1,
-	  "name": "Kyiv",
-	  "image": "https://upload.wikimedia.org/wikipedia/commons/6/62/Kyiv_%28234807751%29.jpeg",
-	},
-	{
-	  "id": 2,
-	  "name": "Lviv",
-	  "image": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Lvov%2C_Rynok%2C_v%C3%BDchodn%C3%AD_strana.jpg",
-	},
-	{
-		"id": 3,
-		"name": "Chernivtsi",
-		"image": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Chernivtsi_University_main_building.jpg",
-	 },
-	 {
-		"id": 4,
-		"name": "Zaporizhia",
-		"image": "https://upload.wikimedia.org/wikipedia/commons/3/39/%D0%9D%D0%B0%D0%B4_%D0%BF%D1%80%D0%BE%D1%81%D0%BF%D0%B5%D0%BA%D1%82%D0%BE%D0%BC_%D0%9C%D0%B5%D1%82%D0%B0%D0%BB%D1%83%D1%80%D0%B3%D1%96%D0%B2.jpg",
-	 },
-	 {
-		"id": 5,
-		"name": "Odessa",
-		"image": "https://upload.wikimedia.org/wikipedia/commons/2/25/%D0%91%D1%83%D0%B4%D0%B8%D0%BD%D0%BE%D0%BA_%D1%82%D0%B5%D0%B0%D1%82%D1%80%D1%83_%D0%BE%D0%BF%D0%B5%D1%80%D0%B8_%D1%82%D0%B0_%D0%B1%D0%B0%D0%BB%D0%B5%D1%82%D1%83%2C_%D0%9E%D0%B4%D0%B5%D1%81%D0%B0_DJI_0023.jpg",
-	 },
-	 {
-		"id": 6,
-		"name": "Uzhhorod",
-		"image": "https://upload.wikimedia.org/wikipedia/commons/c/ce/%D0%A3%D0%B6%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%D1%81%D1%8C%D0%BA%D0%B8%D0%B9_%D0%BA%D0%B0%D1%84%D0%B5%D0%B4%D1%80%D0%B0%D0%BB%D1%8C%D0%BD%D0%B8%D0%B9_%D1%81%D0%BE%D0%B1%D0%BE%D1%80%2C_%D0%B0%D0%B5%D1%80%D0%BE%D1%84%D0%BE%D1%82%D0%BE_2.jpg",
-	 },
-	 {
-		"id": 7,
-		"name": "Poltava",
-		"image": "https://upload.wikimedia.org/wikipedia/commons/d/d6/%D0%91%D1%83%D0%B4%D0%B8%D0%BD%D0%BE%D0%BA_%D0%B7%D0%B5%D0%BC%D1%81%D1%82%D0%B2%D0%B0_P1230868_%D0%BF%D0%BB._%D0%9A%D0%BE%D0%BD%D1%81%D1%82%D0%B8%D1%82%D1%83%D1%86%D1%96%D1%97%2C_2.jpg",
-	 },
- ]
- 
+  {
+    "id": 1,
+    "name": "Kyiv",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/6/62/Kyiv_%28234807751%29.jpeg"
+  },
+  {
+    "id": 2,
+    "name": "Lviv",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Lvov%2C_Rynok%2C_v%C3%BDchodn%C3%AD_strana.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Chernivtsi",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Chernivtsi_University_main_building.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Zaporizhia",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/3/39/%D0%9D%D0%B0%D0%B4_%D0%BF%D1%80%D0%BE%D1%81%D0%BF%D0%B5%D0%BA%D1%82%D0%BE%D0%BC_%D0%9C%D0%B5%D1%82%D0%B0%D0%BB%D1%83%D1%80%D0%B3%D1%96%D0%B2.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Odessa",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/2/25/%D0%91%D1%83%D0%B4%D0%B8%D0%BD%D0%BE%D0%BA_%D1%82%D0%B5%D0%B0%D1%82%D1%80%D1%83_%D0%BE%D0%BF%D0%B5%D1%80%D0%B8_%D1%82%D0%B0_%D0%B1%D0%B0%D0%BB%D0%B5%D1%82%D1%83%2C_%D0%9E%D0%B4%D0%B5%D1%81%D0%B0_DJI_0023.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Uzhhorod",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/c/ce/%D0%A3%D0%B6%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%D1%81%D1%8C%D0%BA%D0%B8%D0%B9_%D0%BA%D0%B0%D1%84%D0%B5%D0%B4%D1%80%D0%B0%D0%BB%D1%8C%D0%BD%D0%B8%D0%B9_%D1%81%D0%BE%D0%B1%D0%BE%D1%80%2C_%D0%B0%D0%B5%D1%80%D0%BE%D1%84%D0%BE%D1%82%D0%BE_2.jpg"
+  },
+  {
+    "id": 7,
+    "name": "Poltava",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/d/d6/%D0%91%D1%83%D0%B4%D0%B8%D0%BD%D0%BE%D0%BA_%D0%B7%D0%B5%D0%BC%D1%81%D1%82%D0%B2%D0%B0_P1230868_%D0%BF%D0%BB._%D0%9A%D0%BE%D0%BD%D1%81%D1%82%D0%B8%D1%82%D1%83%D1%86%D1%96%D1%97%2C_2.jpg"
+  }
+]
