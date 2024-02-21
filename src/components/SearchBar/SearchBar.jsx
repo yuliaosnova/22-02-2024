@@ -1,6 +1,6 @@
 import { useState } from "react";
 import css from "./SearchBar.module.css";
-import { FaSearch } from "react-icons/fa";
+import { FaSearch, FaTrash } from "react-icons/fa";
 
 const SearchBar = ({ setFilter }) => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -17,11 +17,16 @@ const SearchBar = ({ setFilter }) => {
     setFilter({ filter: searchQuery });
   };
 
+  const onRemoveClick = () => {
+	setSearchQuery("")
+	setFilter({filter: ""})
+  }
+
   return (
     <>
       <form onSubmit={handleSubmit} className={css.search_form}>
         <button type="submit" className={css.search_button}>
-          <FaSearch />
+          <FaSearch  />
         </button>
         <input
           type="text"
@@ -32,6 +37,10 @@ const SearchBar = ({ setFilter }) => {
           autoFocus
           onChange={handleChange}
         />
+		  <button type="reset" className={css.remove_btn} onClick={onRemoveClick}>
+		  <FaTrash className={css.trash_icon} />
+		  </button>
+		  
       </form>
     </>
   );

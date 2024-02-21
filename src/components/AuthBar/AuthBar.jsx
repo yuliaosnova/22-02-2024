@@ -11,6 +11,7 @@ import { getIsLoggedIn, getUser } from "../../redux/selectors";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import avatar from "../../assets/user_avatar.png";
+import { toast } from "react-toastify";
 
 const AuthBar = () => {
   const isLoggedIn = useSelector(getIsLoggedIn);
@@ -48,6 +49,7 @@ const AuthBar = () => {
           dispatch(logOut());
         })
         .catch((error) => {
+			toast.error("Something went wrong :(");
           console.log(error);
         });
     }

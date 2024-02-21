@@ -12,6 +12,6 @@
 
   &:hover {
     color: var(--accent-cl);
-    background-color: transparent;
+    background-color: white;
   }
 }

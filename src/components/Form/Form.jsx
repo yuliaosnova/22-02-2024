@@ -5,6 +5,7 @@ import cities from "../../assets/cities.json";
 import { useDispatch } from "react-redux";
 import { addTrip } from "../../redux/tripSlice";
 import { nanoid } from "nanoid";
+import { toast } from "react-toastify";
 
 const Form = ({ toggleModal }) => {
   const dispatch = useDispatch();
@@ -27,6 +28,7 @@ const Form = ({ toggleModal }) => {
         endDate: end,
       })
     );
+    toast.success("The trip was added to the list!");
     form.reset();
     toggleModal();
   }

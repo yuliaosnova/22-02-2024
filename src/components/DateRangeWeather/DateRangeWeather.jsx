@@ -12,6 +12,7 @@ const DateRangeWeather = ({ datesWeather }) => {
           {datesWeather.days.map((day) => (
             <li key={day.datetimeEpoch} className={css.weather_item}>
               <p className={css.day_of_week}>{getDayOfWeek(day.datetime)}</p>
+				  <p className={css.day_of_week}>{day.datetime}</p>
               <svg width={30} height={40}>
                 <use href={`${sprite}#${day.icon}`}></use>
               </svg>

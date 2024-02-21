@@ -9,6 +9,9 @@ import { useSelector } from "react-redux";
 import { getSelectedTripId, getTrips } from "../redux/selectors";
 import DateRangeWeather from "../components/DateRangeWeather/DateRangeWeather";
 import AuthBar from "../components/AuthBar/AuthBar";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 
 const TripAppPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -17,7 +20,6 @@ const TripAppPage = () => {
   const trips = useSelector(getTrips);
   const selectedTripId = useSelector(getSelectedTripId);
   const selectedTrip = trips.find((trip) => trip.id === selectedTripId);
-  //   console.log(selectedTrip);
 
   useEffect(() => {
     API.fetchTodayWeather(selectedTrip.city)
@@ -26,6 +28,7 @@ const TripAppPage = () => {
       })
       .catch((error) => {
         console.log(error);
+        toast.error("Something went wrong :(");
       });
   }, [selectedTrip]);
 
@@ -40,6 +43,7 @@ const TripAppPage = () => {
       })
       .catch((error) => {
         console.log(error);
+        toast.error("Something went wrong :(");
       });
   }, [selectedTrip]);
 
@@ -67,6 +71,12 @@ const TripAppPage = () => {
       <div className={css.right_block}>
         <DayWeather todayWEather={todayWEather} />
       </div>
+      <ToastContainer
+        style={{ width: "250px", fontSize: "12px" }}
+        position="top-center"
+        autoClose={2500}
+        theme="light"
+      />
     </div>
   );
 };

@@ -67,7 +67,7 @@ const TripsList = ({ toggleModal }) => {
 
   function toggleIsSorted() {
     setIsSorted(!isSorted);
-	 setIndex(0);
+    setIndex(0);
   }
 
   return (

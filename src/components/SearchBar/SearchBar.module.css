@@ -1,3 +1,8 @@
+.search_form {
+  display: flex;
+  align-items: center;
+}
+
 .search_input {
   width: 200px;
   height: 34px;
@@ -10,4 +15,19 @@
   width: 40px;
   border: none;
   background-color: #ffffff;
+}
+
+.remove_btn {
+  margin-left: -30px;
+  background-color: transparent;
+  border: none;
+}
+
+.trash_icon {
+  color: rgb(208, 197, 240);
+  transition: var(--animation);
+
+  &:hover {
+    color: rgb(199, 186, 237);
+  }
 }

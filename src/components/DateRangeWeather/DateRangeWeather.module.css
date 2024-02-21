@@ -4,13 +4,20 @@
 
 .weather_list {
 	display: flex;
-	gap: 20px;
+	flex-wrap: wrap;
+	gap: 25px;
+	max-width: 600px;
+}
+
+.weather_item {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 .day_of_week {
-	font-size: 12px;
+	font-size: 10px;
 	color: gray;
-	margin-bottom: 10px;
 }
 
 .temp_block {

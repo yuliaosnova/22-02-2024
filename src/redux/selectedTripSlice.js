@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const selectedTripSlice = createSlice({
   name: "selectedTrip",
-  initialState: 0,
+  initialState: 1,
   reducers: {
     idChange(state, action) {
       return (state = action.payload);
