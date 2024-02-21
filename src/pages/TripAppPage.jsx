@@ -22,8 +22,9 @@ const TripAppPage = () => {
   const selectedTrip = trips.find((trip) => trip.id === selectedTripId);
 
   useEffect(() => {
-    API.fetchTodayWeather(selectedTrip.city)
+    API.fetchTodayWeather(selectedTrip.city, selectedTrip.region)
       .then((response) => {
+			console.log(response)
         setTodayWeather(response);
       })
       .catch((error) => {
@@ -35,6 +36,7 @@ const TripAppPage = () => {
   useEffect(() => {
     API.fetchFromToWeather(
       selectedTrip.city,
+		selectedTrip.region,
       selectedTrip.startDate,
       selectedTrip.endDate
     )

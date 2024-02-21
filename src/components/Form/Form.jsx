@@ -18,11 +18,13 @@ const Form = ({ toggleModal }) => {
     const start = e.target.elements.start.value;
     const end = e.target.elements.end.value;
     const image = cities.find(({ name }) => name === city).image;
+    const region = cities.find(({ name }) => name === city).region;
 
     dispatch(
       addTrip({
         id: nanoid(),
         city,
+        region,
         image,
         startDate: start,
         endDate: end,
