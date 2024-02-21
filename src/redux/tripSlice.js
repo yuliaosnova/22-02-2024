@@ -7,7 +7,7 @@ const tripSlice = createSlice({
   initialState,
   reducers: {
     addTrip(state, action) {
-      return [action.payload, ...state];
+      return [ ...state, action.payload];
     },
   },
 });

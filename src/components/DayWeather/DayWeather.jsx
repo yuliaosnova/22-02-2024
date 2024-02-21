@@ -1,8 +1,9 @@
 import css from "./DayWeather.module.css";
 import sprite from "../../assets/sprite.svg";
 import { getDayOfWeek } from "../../utils/getDayOfWeek";
+import CountdownTimer from "../CountdownTimer/CountdownTimer";
 
-const DayWeather = ({ todayWEather }) => {
+const DayWeather = ({ todayWEather}) => {
   return (
     <>
       {todayWEather && (
@@ -18,12 +19,13 @@ const DayWeather = ({ todayWEather }) => {
               {Math.round(todayWEather.days[0].tempmax)}
               <sup className={css.degree}>°С</sup>
             </p>
-				<p className={css.temperature}>/
-              {Math.round(todayWEather.days[0].tempmin)}
+            <p className={css.temperature}>
+              /{Math.round(todayWEather.days[0].tempmin)}
               <sup className={css.degree}>°С</sup>
             </p>
           </div>
           <p className={css.city}>{todayWEather.address}</p>
+          <CountdownTimer />
         </div>
       )}
     </>
