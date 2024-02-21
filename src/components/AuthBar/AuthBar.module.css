@@ -1,0 +1,17 @@
+.auth_container {
+  display: flex;
+  gap: 10px;
+}
+
+.auth_button {
+  background-color: var(--accent-cl);
+  border: 1px solid var(--accent-cl);
+  color: white;
+  font-size: 12px;
+  transition: var(--animation);
+
+  &:hover {
+    color: var(--accent-cl);
+    background-color: transparent;
+  }
+}

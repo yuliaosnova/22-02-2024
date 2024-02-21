@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const selectedTripSlice = createSlice({
-  name: "selectedTripId",
+  name: "selectedTrip",
   initialState: 0,
   reducers: {
     idChange(state, action) {

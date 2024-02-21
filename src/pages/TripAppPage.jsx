@@ -8,6 +8,7 @@ import * as API from "../servises/api";
 import { useSelector } from "react-redux";
 import { getSelectedTripId, getTrips } from "../redux/selectors";
 import DateRangeWeather from "../components/DateRangeWeather/DateRangeWeather";
+import AuthBar from "../components/AuthBar/AuthBar";
 
 const TripAppPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -54,9 +55,12 @@ const TripAppPage = () => {
         </Modal>
       )}
       <div className={css.left_block}>
-        <h1 className={css.title}>
-          Weather <span className={css.title_bold}>Forecast</span>
-        </h1>
+        <div className={css.header}>
+          <h1 className={css.title}>
+            Weather <span className={css.title_bold}>Forecast</span>
+          </h1>
+          <AuthBar />
+        </div>
         <TripsList toggleModal={toggleModal} />
         <DateRangeWeather datesWeather={datesRangeWeather} />
       </div>

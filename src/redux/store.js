@@ -12,6 +12,9 @@ import {
 import storage from "redux-persist/lib/storage";
 import { tripsReducer } from "./tripSlice";
 import { selectedTripReducer } from "./selectedTripSlice";
+import { userReducer } from "./userSlice";
+
+
 
 const persistConfig = {
   key: "root",
@@ -23,6 +26,7 @@ const persistConfig = {
 const rootReducer = combineReducers({
   trips: tripsReducer,
   selectedTrip: selectedTripReducer,
+  user: userReducer,
 });
 
 const persistedReduser = persistReducer(persistConfig, rootReducer);

@@ -6,7 +6,7 @@
   /* text colours */
   --main-txt-cl: #173d33;
   --secondary-txt-cl: #cbd6e2;
-  --accent-cl: #6a9aeed1;
+  --accent-cl: rgb(147, 122, 222);
 
   /* background colors */
   --main-bg: #f3f5fa;

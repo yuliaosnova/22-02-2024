@@ -3,6 +3,11 @@
 	gap: 30px;
 }
 
+.header {
+	display: flex;
+	justify-content: space-between;
+}
+
 .title {
 	font-size: 18px;
 	font-weight: 400;

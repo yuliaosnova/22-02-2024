@@ -4,10 +4,9 @@ import { getDayOfWeek } from "../../utils/getDayOfWeek";
 import sprite from "../../assets/sprite.svg";
 
 const DateRangeWeather = ({ datesWeather }) => {
-  console.log("Range", datesWeather);
   return (
     <>
-	 <h2 className={css.title}>Weather for your trip</h2>
+      <h2 className={css.title}>Weather for your trip</h2>
       {datesWeather && (
         <ul className={css.weather_list}>
           {datesWeather.days.map((day) => (
