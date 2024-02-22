@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import { getDayOfWeek } from "../../utils/getDayOfWeek";
 import sprite from "../../assets/sprite.svg";
+import { formatDate } from "../../utils/formatDate";
 import css from "./DateRangeWeather.module.css";
 
 const DateRangeWeather = ({ datesWeather }) => {
@@ -12,7 +13,7 @@ const DateRangeWeather = ({ datesWeather }) => {
           {datesWeather.days.map((day) => (
             <li key={day.datetimeEpoch} className={css.weather_item}>
               <p className={css.day_of_week}>{getDayOfWeek(day.datetime)}</p>
-              <p className={css.day_of_week}>{day.datetime}</p>
+              <p className={css.day_of_week}>{formatDate(day.datetime)}</p>
               <svg width={30} height={40} aria-label="weather icon">
                 <use href={`${sprite}#${day.icon}`}></use>
               </svg>
