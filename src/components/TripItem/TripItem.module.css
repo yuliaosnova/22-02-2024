@@ -1,4 +1,5 @@
 .trip_item {
+  width: 120px;
   transition: var(--animation);
   &:hover {
     transform: scale(1.1);
