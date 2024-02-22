@@ -17,7 +17,17 @@
   transition: var(--animation);
 
   &:hover {
-    background-color: white;
+    background-color: var(--white-cl);
+  }
+
+  &:disabled {
+    border-color: var(--secondary-txt-cl);
+    &:hover {
+      background-color: transparent;
+    }
+    .icon {
+      stroke: var(--secondary-txt-cl);
+    }
   }
 }
 

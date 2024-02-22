@@ -95,14 +95,14 @@
 .modal_button {
   display: block;
   padding: 10px;
-  background-color: white;
+  background-color: var(--white-cl);
   border: 1px solid var(--secondary-txt-cl);
   transition: var(--animation);
 
   &:hover {
     background-color: var(--accent-cl);
     border: 1px solid var(--accent-cl);
-    color: white;
+    color: var(--white-cl);
     border: transparent;
   }
 }

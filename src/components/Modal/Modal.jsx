@@ -1,6 +1,7 @@
 import { useEffect } from "react";
-import css from "./Modal.module.css";
 import { createPortal } from "react-dom";
+import PropTypes from "prop-types";
+import css from "./Modal.module.css";
 
 const modalRoot = document.querySelector("#modal-root");
 
@@ -31,6 +32,11 @@ const Modal = ({ toggleModal, children }) => {
     </div>,
     modalRoot
   );
+};
+
+Modal.propTypes = {
+  toggleModal: PropTypes.func.isRequired,
+  children: PropTypes.node,
 };
 
 export default Modal;

@@ -1,3 +1,5 @@
+// Restricts days, allowed to choose in the calendar
+
 export function restrictDates() {
   const currentDate = new Date();
   currentDate.setDate(currentDate.getDate() + 15);

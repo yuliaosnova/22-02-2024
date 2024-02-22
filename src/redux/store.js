@@ -14,8 +14,6 @@ import { tripsReducer } from "./tripSlice";
 import { selectedTripReducer } from "./selectedTripSlice";
 import { userReducer } from "./userSlice";
 
-
-
 const persistConfig = {
   key: "root",
   version: 1,

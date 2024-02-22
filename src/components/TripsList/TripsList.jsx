@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
-import { getTrips } from "../../redux/selectors";
-import css from "./TripList.module.css";
-import sprite from "../../assets/sprite.svg";
-import TripItem from "../TripItem/TripItem";
 import { useSelector } from "react-redux";
-import SearchBar from "../SearchBar/SearchBar";
 import { useSearchParams } from "react-router-dom";
-import Sort from "../Sort/Sort";
+import PropTypes from "prop-types";
+import { getTrips } from "../../redux/selectors";
+import sprite from "../../assets/sprite.svg";
 import { sortByDate } from "../../utils/sortByDate";
+import TripItem from "../TripItem/TripItem";
+import SearchBar from "../SearchBar/SearchBar";
+import Sort from "../Sort/Sort";
+import css from "./TripList.module.css";
 
 const TripsList = ({ toggleModal }) => {
   let trips = useSelector(getTrips);
@@ -71,42 +72,66 @@ const TripsList = ({ toggleModal }) => {
   }
 
   return (
-    <section className={css.trips_container}>
+    <div className={css.trips_container}>
       <SearchBar setFilter={setSearchParams} />
       <Sort toggleIsSorted={toggleIsSorted} />
       <div className={css.slide_buttons}>
-        <button className={css.slide_btn} onClick={clickLeft}>
-          <svg className={css.icon}>
+        <button
+          className={css.slide_btn}
+          aria-label="slide list to left"
+          onClick={clickLeft}
+          disabled={index === 0 ? true : false}
+        >
+          <svg className={css.icon} aria-label="arrow left">
             <use href={`${sprite}#arrow`}></use>
           </svg>
         </button>
-        <button className={css.slide_btn} onClick={clickRight}>
-          <svg className={[`${css.icon_right} ${css.icon}`]}>
+        <button
+          className={css.slide_btn}
+          aria-label="slide list to right"
+          onClick={clickRight}
+          disabled={index === trips.length - 3 ? true : false}
+        >
+          <svg
+            className={[`${css.icon_right} ${css.icon}`]}
+            aria-label="arrow right"
+          >
             <use href={`${sprite}#arrow`}></use>
           </svg>
         </button>
       </div>
+      {!filteredTrips ||
+        (filteredTrips.length === 0 && (
+          <p>No results found. Try to add the trip.</p>
+        ))}
       <ul className={css.slider}>
         {(filteredTrips || isSorted ? filteredTrips : trips)
           .slice(index, index + 3)
-          .map((trip, i) => (
+          .map((trip) => (
             <TripItem
+              key={trip.id}
               onTouchStart={onTouchStart}
               onTouchMove={onTouchMove}
               onTouchEnd={onTouchEnd}
               trip={trip}
-              index={index}
-              key={i}
             />
           ))}
 
-        <button className={css.add_btn} onClick={toggleModal}>
+        <button
+          className={css.add_btn}
+          aria-label="add new trip"
+          onClick={toggleModal}
+        >
           <span>+</span>
           <p>Add trip</p>
         </button>
       </ul>
-    </section>
+    </div>
   );
+};
+
+TripsList.propTypes = {
+  toggleModal: PropTypes.func.isRequired,
 };
 
 export default TripsList;

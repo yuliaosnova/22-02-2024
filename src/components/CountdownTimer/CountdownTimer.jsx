@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import css from "./CountdownTimer.module.css";
-import { calculateTimeLeft } from "../../utils/calculateTimeLeft";
 import { useSelector } from "react-redux";
 import { getSelectedTripId, getTrips } from "../../redux/selectors";
+import { calculateTimeLeft } from "../../utils/calculateTimeLeft";
+import css from "./CountdownTimer.module.css";
 
 const CountdownTimer = () => {
   const trips = useSelector(getTrips);

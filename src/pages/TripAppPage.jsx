@@ -1,17 +1,18 @@
 import { useEffect, useState } from "react";
-import TripsList from "../components/TripsList/TripsList";
-import css from "./TripAppPage.module.css";
+import { useSelector } from "react-redux";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
+import { FaGithub } from "react-icons/fa";
+import * as API from "../servises/api";
 import Modal from "../components/Modal/Modal";
 import Form from "../components/Form/Form";
 import DayWeather from "../components/DayWeather/DayWeather";
-import * as API from "../servises/api";
-import { useSelector } from "react-redux";
+import TripsList from "../components/TripsList/TripsList";
 import { getSelectedTripId, getTrips } from "../redux/selectors";
 import DateRangeWeather from "../components/DateRangeWeather/DateRangeWeather";
 import AuthBar from "../components/AuthBar/AuthBar";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import { toast } from "react-toastify";
+import css from "./TripAppPage.module.css";
 
 const TripAppPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -24,7 +25,6 @@ const TripAppPage = () => {
   useEffect(() => {
     API.fetchTodayWeather(selectedTrip.city, selectedTrip.region)
       .then((response) => {
-			console.log(response)
         setTodayWeather(response);
       })
       .catch((error) => {
@@ -36,7 +36,7 @@ const TripAppPage = () => {
   useEffect(() => {
     API.fetchFromToWeather(
       selectedTrip.city,
-		selectedTrip.region,
+      selectedTrip.region,
       selectedTrip.startDate,
       selectedTrip.endDate
     )
@@ -62,9 +62,21 @@ const TripAppPage = () => {
       )}
       <div className={css.left_block}>
         <div className={css.header}>
-          <h1 className={css.title}>
-            Weather <span className={css.title_bold}>Forecast</span>
-          </h1>
+          <div className={css.title_block}>
+            <h1 className={css.title}>
+              Weather <span className={css.title_bold}>Forecast</span>
+            </h1>
+            <a
+              className={css.github_link}
+              href="https://github.com/yuliaosnova"
+              target="_blank"
+              rel="noopener noferrer"
+              aria-label="Github reference"
+            >
+              <FaGithub aria-label="github icon" />
+            </a>
+          </div>
+
           <AuthBar />
         </div>
         <TripsList toggleModal={toggleModal} />

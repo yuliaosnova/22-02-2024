@@ -6,12 +6,12 @@
 .auth_button {
   background-color: var(--accent-cl);
   border: 1px solid var(--accent-cl);
-  color: white;
+  color: var(--white-cl);
   font-size: 12px;
   transition: var(--animation);
 
   &:hover {
     color: var(--accent-cl);
-    background-color: white;
+    background-color: var(--white-cl);
   }
 }

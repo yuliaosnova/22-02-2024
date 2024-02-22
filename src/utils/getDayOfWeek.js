@@ -1,4 +1,8 @@
-//функція приймає дату в форматі YYYY-MM-DD  і повертає день тижня
+/**
+ * Get the day of the week from a given date string
+ * @param {string}
+ * @returns {string}
+ */
 
 export function getDayOfWeek(dateString) {
   const date = new Date(dateString);

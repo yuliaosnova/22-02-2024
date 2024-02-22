@@ -14,7 +14,7 @@
   height: 36px;
   width: 40px;
   border: none;
-  background-color: #ffffff;
+  background-color: var(--white-cl);
 }
 
 .remove_btn {

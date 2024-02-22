@@ -1,11 +1,12 @@
-import { IoMdClose } from "react-icons/io";
-import css from "./Form.module.css";
-import { restrictDates } from "../../utils/restrictDates";
-import cities from "../../assets/cities.json";
 import { useDispatch } from "react-redux";
-import { addTrip } from "../../redux/tripSlice";
+import PropTypes from "prop-types";
 import { nanoid } from "nanoid";
 import { toast } from "react-toastify";
+import { IoMdClose } from "react-icons/io";
+import { restrictDates } from "../../utils/restrictDates";
+import cities from "../../assets/cities.json";
+import { addTrip } from "../../redux/tripSlice";
+import css from "./Form.module.css";
 
 const Form = ({ toggleModal }) => {
   const dispatch = useDispatch();
@@ -41,10 +42,11 @@ const Form = ({ toggleModal }) => {
         <h3 className={css.modal_title}>Create trip</h3>
         <button
           type="button"
+          aria-label="button for closing modal"
           className={css.close_form_btn}
           onClick={toggleModal}
         >
-          <IoMdClose className={css.icon_close} />
+          <IoMdClose className={css.icon_close} aria-label="close icon" />
         </button>
       </div>
       <div className={css.form}>
@@ -117,6 +119,10 @@ const Form = ({ toggleModal }) => {
       </div>
     </form>
   );
+};
+
+Form.propTypes = {
+  toggleModal: PropTypes.func,
 };
 
 export default Form;

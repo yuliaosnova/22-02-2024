@@ -1,17 +1,17 @@
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import {
   getAuth,
   getRedirectResult,
   signInWithPopup,
   signOut,
 } from "firebase/auth";
+import { toast } from "react-toastify";
 import { app, googleAuthProvider } from "../../firebase";
 import { logIn, logOut } from "../../redux/userSlice";
-import css from "./AuthBar.module.css";
 import { getIsLoggedIn, getUser } from "../../redux/selectors";
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
 import avatar from "../../assets/user_avatar.png";
-import { toast } from "react-toastify";
+import css from "./AuthBar.module.css";
 
 const AuthBar = () => {
   const isLoggedIn = useSelector(getIsLoggedIn);
@@ -49,7 +49,7 @@ const AuthBar = () => {
           dispatch(logOut());
         })
         .catch((error) => {
-			toast.error("Something went wrong :(");
+          toast.error("Something went wrong :(");
           console.log(error);
         });
     }
@@ -64,7 +64,7 @@ const AuthBar = () => {
       )}
       {isLoggedIn && (
         <div className={css.auth_container}>
-			<img src={avatar} width={28} height={28} alt="user avatar"></img>
+          <img src={avatar} width={28} height={28} aria-label="user avatar"></img>
           <p className={css.user_name}>{user}</p>
           <button
             type="button"

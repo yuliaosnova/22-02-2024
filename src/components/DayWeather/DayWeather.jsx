@@ -1,9 +1,10 @@
-import css from "./DayWeather.module.css";
+import PropTypes from "prop-types";
 import sprite from "../../assets/sprite.svg";
 import { getDayOfWeek } from "../../utils/getDayOfWeek";
 import CountdownTimer from "../CountdownTimer/CountdownTimer";
+import css from "./DayWeather.module.css";
 
-const DayWeather = ({ todayWEather}) => {
+const DayWeather = ({ todayWEather }) => {
   return (
     <>
       {todayWEather && (
@@ -24,12 +25,26 @@ const DayWeather = ({ todayWEather}) => {
               <sup className={css.degree}>°С</sup>
             </p>
           </div>
-          <p className={css.city}>{todayWEather.address}</p>
+          <p className={css.city}>{todayWEather.address.slice(0, -3)}</p>
           <CountdownTimer />
         </div>
       )}
     </>
   );
+};
+
+DayWeather.propTypes = {
+  todayWEather: PropTypes.shape({
+    days: PropTypes.arrayOf(
+      PropTypes.shape({
+        datetime: PropTypes.string.isRequired,
+        tempmax: PropTypes.number.isRequired,
+        tempmin: PropTypes.number.isRequired,
+        icon: PropTypes.string.isRequired,
+      })
+    ).isRequired,
+    address: PropTypes.string.isRequired,
+  }),
 };
 
 export default DayWeather;

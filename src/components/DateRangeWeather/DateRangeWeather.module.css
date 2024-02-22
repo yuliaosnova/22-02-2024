@@ -1,26 +1,26 @@
 .title {
-	font-size: 14px;
+  font-size: 14px;
 }
 
 .weather_list {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 25px;
-	max-width: 600px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  max-width: 600px;
 }
 
 .weather_item {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .day_of_week {
-	font-size: 10px;
-	color: gray;
+  font-size: 10px;
+  color: var(--secondary-txt-cl);
 }
 
 .temp_block {
-	display: flex;
-	font-size: 12px;
+  display: flex;
+  font-size: 12px;
 }

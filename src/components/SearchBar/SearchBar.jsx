@@ -1,6 +1,7 @@
 import { useState } from "react";
-import css from "./SearchBar.module.css";
+import PropTypes from "prop-types";
 import { FaSearch, FaTrash } from "react-icons/fa";
+import css from "./SearchBar.module.css";
 
 const SearchBar = ({ setFilter }) => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -18,15 +19,19 @@ const SearchBar = ({ setFilter }) => {
   };
 
   const onRemoveClick = () => {
-	setSearchQuery("")
-	setFilter({filter: ""})
-  }
+    setSearchQuery("");
+    setFilter({ filter: "" });
+  };
 
   return (
     <>
       <form onSubmit={handleSubmit} className={css.search_form}>
-        <button type="submit" className={css.search_button}>
-          <FaSearch  />
+        <button
+          type="submit"
+          aria-label="button for starting search"
+          className={css.search_button}
+        >
+          <FaSearch aria-label="search icon" />
         </button>
         <input
           type="text"
@@ -37,13 +42,21 @@ const SearchBar = ({ setFilter }) => {
           autoFocus
           onChange={handleChange}
         />
-		  <button type="reset" className={css.remove_btn} onClick={onRemoveClick}>
-		  <FaTrash className={css.trash_icon} />
-		  </button>
-		  
+        <button
+          type="reset"
+          aria-label="button for reseting search form"
+          className={css.remove_btn}
+          onClick={onRemoveClick}
+        >
+          <FaTrash className={css.trash_icon} aria-label="remove icon" />
+        </button>
       </form>
     </>
   );
+};
+
+SearchBar.propTypes = {
+  setFilter: PropTypes.func.isRequired,
 };
 
 export default SearchBar;
