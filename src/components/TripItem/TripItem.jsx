@@ -1,3 +1,4 @@
+import { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import PropTypes from "prop-types";
 import { idChange } from "../../redux/selectedTripSlice";
@@ -9,9 +10,12 @@ const TripItem = ({ onTouchStart, onTouchMove, onTouchEnd, trip }) => {
   const selectedTrip = useSelector(getSelectedTripId);
   const dispatch = useDispatch();
 
-  function chooseTrip(selectedId) {
-    dispatch(idChange(selectedId));
-  }
+  const chooseTrip = useCallback(
+    (selectedId) => {
+      dispatch(idChange(selectedId));
+    },
+    [dispatch]
+  );
 
   return (
     <li

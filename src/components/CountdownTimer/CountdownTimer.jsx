@@ -40,20 +40,20 @@ const CountdownTimer = () => {
   return (
     <div className={css.timer}>
       <div className={css.timer_item}>
-        <div className={css.time_value}>{timeLeft.days}</div>
-        <div className={css.time_label}>Days</div>
+        <p className={css.time_value}>{timeLeft.days}</p>
+        <p className={css.time_label}>Days</p>
       </div>
       <div className={css.timer_item}>
-        <div className={css.time_value}>{timeLeft.hours}</div>
-        <div className={css.time_label}>Hours</div>
+        <p className={css.time_value}>{timeLeft.hours}</p>
+        <p className={css.time_label}>Hours</p>
       </div>
       <div className={css.timer_item}>
-        <div className={css.time_value}>{timeLeft.minutes}</div>
-        <div className={css.time_label}>Minutes</div>
+        <p className={css.time_value}>{timeLeft.minutes}</p>
+        <p className={css.time_label}>Minutes</p>
       </div>
       <div className={css.timer_item}>
-        <div className={css.time_value}>{timeLeft.seconds}</div>
-        <div className={css.time_label}>Seconds</div>
+        <p className={css.time_value}>{timeLeft.seconds}</p>
+        <p className={css.time_label}>Seconds</p>
       </div>
     </div>
   );

@@ -15,18 +15,17 @@ const Form = ({ toggleModal }) => {
   function handleSubmit(e) {
     e.preventDefault();
     const form = e.target;
-    const city = e.target.elements.city.value;
-    const start = e.target.elements.start.value;
-    const end = e.target.elements.end.value;
-    const image = cities.find(({ name }) => name === city).image;
-    const region = cities.find(({ name }) => name === city).region;
+    const city = form.elements.city.value;
+    const start = form.elements.start.value;
+    const end = form.elements.end.value;
+    const c = cities.find(({ name }) => name === city);
 
     dispatch(
       addTrip({
         id: nanoid(),
         city,
-        region,
-        image,
+        region: c.region,
+        image: c.image,
         startDate: start,
         endDate: end,
       })

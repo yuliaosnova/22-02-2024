@@ -1,11 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  getAuth,
-  getRedirectResult,
-  signInWithPopup,
-  signOut,
-} from "firebase/auth";
+import { getAuth, signInWithPopup, signOut } from "firebase/auth";
 import { toast } from "react-toastify";
 import { app, googleAuthProvider } from "../../firebase";
 import { logIn, logOut } from "../../redux/userSlice";
@@ -33,17 +28,13 @@ const AuthBar = () => {
     return unsub;
   }, [auth, dispatch]);
 
-  function clickHandler() {
+  const clickHandler = () => {
     if (!isLoggedIn) {
       googleAuthProvider.setCustomParameters({
         prompt: "select_account",
       });
       signInWithPopup(auth, googleAuthProvider);
-      getRedirectResult(auth).catch((error) => {
-        console.log(error.message);
-      });
     } else {
-      const auth = getAuth();
       signOut(auth)
         .then(() => {
           dispatch(logOut());
@@ -53,7 +44,7 @@ const AuthBar = () => {
           console.log(error);
         });
     }
-  }
+  };
 
   return (
     <div className={css.auth_container}>
@@ -64,7 +55,7 @@ const AuthBar = () => {
       )}
       {isLoggedIn && (
         <div className={css.auth_container}>
-          <img src={avatar} width={28} height={28} aria-label="user avatar"></img>
+          <img src={avatar} width={28} height={28} alt="user avatar"></img>
           <p className={css.user_name}>{user}</p>
           <button
             type="button"
