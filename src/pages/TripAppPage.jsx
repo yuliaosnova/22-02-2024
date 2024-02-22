@@ -68,7 +68,7 @@ const TripAppPage = () => {
             </h1>
             <a
               className={css.github_link}
-              href="https://github.com/yuliaosnova"
+              href="https://github.com/yuliaosnova/22-02-2024"
               target="_blank"
               rel="noopener noferrer"
               aria-label="Github reference"
