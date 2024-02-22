@@ -23,7 +23,7 @@
     display: block;
     height: 1px;
     width: 500px;
-    background: var(--secondary-txt-cl);
+    background: var(--trip-border-cl);
     position: absolute;
     top: 60px;
   }
@@ -59,27 +59,27 @@
 select {
   padding: 10px;
   width: 450px;
-  border: 1px solid var(--secondary-txt-cl);
+  border: 1px solid var(--trip-border-cl);
   margin-bottom: 15px;
 }
 
 .field {
   padding: 10px;
   width: 430px;
-  border: 1px solid var(--secondary-txt-cl);
+  border: 1px solid var(--trip-border-cl);
   margin-bottom: 15px;
 }
 
 .modal_footer {
   position: relative;
-  padding-bottom: 20px;
+  padding-bottom: 15px;
 
   &::before {
     content: "";
     display: block;
     height: 1px;
     width: 500px;
-    background: var(--secondary-txt-cl);
+    background: var(--trip-border-cl);
     position: absolute;
     top: -20px;
   }
@@ -96,7 +96,7 @@ select {
   display: block;
   padding: 10px;
   background-color: var(--white-cl);
-  border: 1px solid var(--secondary-txt-cl);
+  border: 1px solid var(--trip-border-cl);
   transition: var(--animation);
 
   &:hover {
