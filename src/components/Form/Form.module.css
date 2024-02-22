@@ -56,7 +56,7 @@
   color: red;
 }
 
-.select {
+select {
   padding: 10px;
   width: 450px;
   border: 1px solid var(--secondary-txt-cl);
