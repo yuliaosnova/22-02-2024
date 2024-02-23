@@ -15,16 +15,13 @@ const Form = ({ toggleModal }) => {
   const today = getTodayDate();
   const maxDate = restrictDates();
   const [minDate, setMinDate] = useState(today);
-  console.log(minDate)
 
   function handleSubmit(e) {
     e.preventDefault();
     const form = e.target;
     const city = form.elements.city.value;
-   //  const start = form.elements.start.value;
     const end = form.elements.end.value;
     const c = cities.find(({ name }) => name === city);
-	 
 
     dispatch(
       addTrip({
