@@ -4,6 +4,7 @@ import { nanoid } from "nanoid";
 import { toast } from "react-toastify";
 import { IoMdClose } from "react-icons/io";
 import { restrictDates } from "../../utils/restrictDates";
+import { getTodayDate } from "../../utils/getTodayDate";
 import cities from "../../assets/cities.json";
 import { addTrip } from "../../redux/tripSlice";
 import css from "./Form.module.css";
@@ -11,6 +12,7 @@ import css from "./Form.module.css";
 const Form = ({ toggleModal }) => {
   const dispatch = useDispatch();
   const maxDate = restrictDates();
+  const today = getTodayDate();
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -24,8 +26,8 @@ const Form = ({ toggleModal }) => {
       addTrip({
         id: nanoid(),
         city,
-        region: c.region,
-        image: c.image,
+        region: c?.region,
+        image: c?.image,
         startDate: start,
         endDate: end,
       })
@@ -77,7 +79,8 @@ const Form = ({ toggleModal }) => {
           <input
             type="text"
             name="start"
-            max={maxDate}
+            min={today}
+				max={maxDate}
             placeholder="Select date"
             className={css.field}
             required
@@ -93,6 +96,7 @@ const Form = ({ toggleModal }) => {
           <input
             type="text"
             name="end"
+            min={today}
             max={maxDate}
             placeholder="Select date"
             className={css.field}
