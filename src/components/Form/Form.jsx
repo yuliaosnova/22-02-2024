@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useDispatch } from "react-redux";
 import PropTypes from "prop-types";
 import { nanoid } from "nanoid";
@@ -13,6 +14,7 @@ const Form = ({ toggleModal }) => {
   const dispatch = useDispatch();
   const maxDate = restrictDates();
   const today = getTodayDate();
+  const [minDate, setMinDate] = useState(today);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -36,6 +38,10 @@ const Form = ({ toggleModal }) => {
     form.reset();
     toggleModal();
   }
+
+  const onStartDateChange = (e) => {
+    setMinDate(e.target.value);
+  };
 
   return (
     <form className={css.modal} onSubmit={handleSubmit}>
@@ -80,12 +86,13 @@ const Form = ({ toggleModal }) => {
             type="text"
             name="start"
             min={today}
-				max={maxDate}
+            max={maxDate}
             placeholder="Select date"
             className={css.field}
             required
             onFocus={(e) => (e.target.type = "date")}
             onBlur={(e) => (e.target.type = "text")}
+            onChange={(e) => onStartDateChange(e)}
           />
         </label>
 
@@ -96,7 +103,7 @@ const Form = ({ toggleModal }) => {
           <input
             type="text"
             name="end"
-            min={today}
+            min={minDate}
             max={maxDate}
             placeholder="Select date"
             className={css.field}
