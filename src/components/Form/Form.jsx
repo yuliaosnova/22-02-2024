@@ -12,17 +12,19 @@ import css from "./Form.module.css";
 
 const Form = ({ toggleModal }) => {
   const dispatch = useDispatch();
-  const maxDate = restrictDates();
   const today = getTodayDate();
+  const maxDate = restrictDates();
   const [minDate, setMinDate] = useState(today);
+  console.log(minDate)
 
   function handleSubmit(e) {
     e.preventDefault();
     const form = e.target;
     const city = form.elements.city.value;
-    const start = form.elements.start.value;
+   //  const start = form.elements.start.value;
     const end = form.elements.end.value;
     const c = cities.find(({ name }) => name === city);
+	 
 
     dispatch(
       addTrip({
@@ -30,7 +32,7 @@ const Form = ({ toggleModal }) => {
         city,
         region: c?.region,
         image: c?.image,
-        startDate: start,
+        startDate: minDate,
         endDate: end,
       })
     );
