@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import { useSearchParams } from "react-router-dom";
 import PropTypes from "prop-types";
@@ -13,14 +13,13 @@ import css from "./TripList.module.css";
 const TripsList = ({ toggleModal }) => {
   let trips = useSelector(getTrips);
   const [index, setIndex] = useState(0);
-  const [touchStart, setTouchStart] = useState(0);
-  const [touchEnd, setTouchEnd] = useState(0);
   const [filteredTrips, setFilteredTrips] = useState(null);
   const [isSorted, setIsSorted] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams({
     filter: "",
   });
   const filter = searchParams.get("filter") ?? "";
+  const touchStartRef = useRef(0);
 
   useEffect(() => {
     let filtered = trips.filter((trip) =>
@@ -38,21 +37,17 @@ const TripsList = ({ toggleModal }) => {
   }, [filter, isSorted, trips]);
 
   function onTouchStart(e) {
-    setTouchStart(e.targetTouches[0].clientX);
-  }
-
-  function onTouchMove(e) {
-    setTouchEnd(e.targetTouches[0].clientX);
+    touchStartRef.current = e.targetTouches[0].clientX;
   }
 
   function onTouchEnd(e) {
     if (e.changedTouches && e.changedTouches.length > 0) {
       const endX = e.changedTouches[0].clientX;
-      if (touchStart - endX >= 100) {
+      if (touchStartRef.current - endX >= 100) {
         clickRight();
       }
 
-      if (touchStart - endX < -100) {
+      if (touchStartRef.current - endX < -100) {
         clickLeft();
       }
     }
@@ -122,7 +117,6 @@ const TripsList = ({ toggleModal }) => {
             <TripItem
               key={trip.id}
               onTouchStart={(e) => onTouchStart(e)}
-              onTouchMove={(e) => onTouchMove(e)}
               onTouchEnd={(e) => onTouchEnd(e)}
               trip={trip}
             />

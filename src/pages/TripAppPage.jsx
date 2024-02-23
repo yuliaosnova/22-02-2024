@@ -28,8 +28,8 @@ const TripAppPage = () => {
         setTodayWeather(response);
       })
       .catch((error) => {
-        console.log(error);
-        toast.error("Something went wrong :(");
+      //   console.log(error);
+      //   toast.error("Something went wrong :(");
       });
   }, [selectedTrip]);
 
@@ -44,8 +44,8 @@ const TripAppPage = () => {
         setDateRangeWeather(response);
       })
       .catch((error) => {
-        console.log(error);
-        toast.error("Something went wrong :(");
+      //   console.log(error);
+      //   toast.error("Something went wrong :(");
       });
   }, [selectedTrip]);
 

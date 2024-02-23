@@ -6,7 +6,7 @@ import { getSelectedTripId } from "../../redux/selectors";
 import { formatDate } from "../../utils/formatDate";
 import css from "./TripItem.module.css";
 
-const TripItem = ({ onTouchStart, onTouchMove, onTouchEnd, trip }) => {
+const TripItem = ({ onTouchStart, onTouchEnd, trip }) => {
   const selectedTrip = useSelector(getSelectedTripId);
   const dispatch = useDispatch();
 
@@ -21,7 +21,6 @@ const TripItem = ({ onTouchStart, onTouchMove, onTouchEnd, trip }) => {
     <li
       className={css.trip_item}
       onTouchStart={onTouchStart}
-      onTouchMove={onTouchMove}
       onTouchEnd={onTouchEnd}
       onClick={() => chooseTrip(trip.id)}
     >
