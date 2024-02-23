@@ -26,13 +26,16 @@ const TripsList = ({ toggleModal }) => {
     let filtered = trips.filter((trip) =>
       trip.city.toLowerCase().includes(filter)
     );
+    const maxIndex = Math.max(0, filtered.length - 3);
+    setIndex((prevIndex) => Math.min(prevIndex, maxIndex));
+
     if (!isSorted) {
       setFilteredTrips(filtered);
     } else {
       const sortedTrips = sortByDate(filtered);
       setFilteredTrips(sortedTrips);
     }
-  }, [filter, trips, isSorted]);
+  }, [filter, isSorted, trips]);
 
   function onTouchStart(e) {
     setTouchStart(e.targetTouches[0].clientX);
@@ -42,13 +45,16 @@ const TripsList = ({ toggleModal }) => {
     setTouchEnd(e.targetTouches[0].clientX);
   }
 
-  function onTouchEnd() {
-    if (touchStart - touchEnd > 100) {
-      clickRight();
-    }
+  function onTouchEnd(e) {
+    if (e.changedTouches && e.changedTouches.length > 0) {
+      const endX = e.changedTouches[0].clientX;
+      if (touchStart - endX >= 100) {
+        clickRight();
+      }
 
-    if (touchStart - touchEnd < -100) {
-      clickLeft();
+      if (touchStart - endX < -100) {
+        clickLeft();
+      }
     }
   }
 
@@ -90,7 +96,12 @@ const TripsList = ({ toggleModal }) => {
           className={css.slide_btn}
           aria-label="slide list to right"
           onClick={clickRight}
-          disabled={index === trips.length - 3 ? true : false}
+          disabled={
+            index === trips.length - 3 ||
+            index >= (filteredTrips?.length || 0) - 3
+              ? true
+              : false
+          }
         >
           <svg
             className={[`${css.icon_right} ${css.icon}`]}
@@ -101,7 +112,7 @@ const TripsList = ({ toggleModal }) => {
         </button>
       </div>
       {!filteredTrips ||
-        (filteredTrips.length === 0 && (
+        (filteredTrips?.length === 0 && (
           <p>No results found. Try to add the trip.</p>
         ))}
       <ul className={css.slider}>
@@ -110,13 +121,12 @@ const TripsList = ({ toggleModal }) => {
           .map((trip) => (
             <TripItem
               key={trip.id}
-              onTouchStart={onTouchStart}
-              onTouchMove={onTouchMove}
-              onTouchEnd={onTouchEnd}
+              onTouchStart={(e) => onTouchStart(e)}
+              onTouchMove={(e) => onTouchMove(e)}
+              onTouchEnd={(e) => onTouchEnd(e)}
               trip={trip}
             />
           ))}
-
         <button
           className={css.add_btn}
           aria-label="add new trip"
